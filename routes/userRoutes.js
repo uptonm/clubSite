@@ -1,4 +1,4 @@
-const {getUsers, getUser, addUser, putUser, deleteUser} = require('../actions').actions
+const {getUsers, getUser, addUser, putUser, deleteUser} = require('../actions/userActions')
 
 module.exports = (app) => {
     app.get('/api/users', (req, res) => {

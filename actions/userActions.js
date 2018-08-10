@@ -1,7 +1,5 @@
 const mongoose = require('mongoose')
-const { user, pass } = require('../config/keys')
-mongoose.connect(`mongodb://${user}:${pass}@ds135421.mlab.com:35421/uptonm-sandbox`, {useNewUrlParser: true})
-require('../models/user')
+
 const User = mongoose.model('users')
 
     getUsers = async (req, res) => {
@@ -48,4 +46,4 @@ const User = mongoose.model('users')
         return res.status(200).send(userUpdate)
     }
 
-module.exports.actions = {getUsers, getUser, addUser, putUser, deleteUser}
+module.exports = {getUsers, getUser, addUser, putUser, deleteUser}
