@@ -15,6 +15,7 @@ class Newsletter extends Component {
         })
         console.log(this.state)
     }
+
     renderView() {
         if (!this.state.newsletters) {
             return (
@@ -24,7 +25,7 @@ class Newsletter extends Component {
         else {
             return (
                 <div>
-                    <img src={this.state.selected.image} width='100%' style={{paddingBottom: '10px'}}/>
+                    <img src={this.state.selected.image} width='100%' style={{paddingBottom: '10px'}} alt='header-img'/>
                     <h2>{this.state.selected.header}</h2>
                     <div className='row'>
                         <div className="col-6">
@@ -40,6 +41,7 @@ class Newsletter extends Component {
             )
         }
     }
+
     renderSidebar() {
         const news = this.state.newsletters.map(item => {
             return (

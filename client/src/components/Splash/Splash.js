@@ -26,7 +26,7 @@ class Splash extends Component {
                 <hr className="my-4" />
                 <p>{this.state.message && this.state.message}</p>
                 <p className="lead">
-                    <Link className="btn btn-primary btn-lg" to='/newsletter' role="button">Learn more</Link>
+                    <Link className="btn btn-primary btn-lg" to='/emaillist' role="button">Learn more</Link>
                 </p>
             </div>
         )
