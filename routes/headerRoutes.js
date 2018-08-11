@@ -1,6 +1,10 @@
-const {getHeader, addHeader, putHeader, deleteHeader} = require('../actions/headerActions')
+const {getHeader, getHeaders, addHeader, putHeader, deleteHeader} = require('../actions/headerActions')
 
 module.exports = (app) => {
+    app.get('/api/headers', (req, res) => {
+        getHeaders(req, res)
+    })
+
     app.get('/api/headers/:id', (req, res) => {
         getHeader(req, res)
     })

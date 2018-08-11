@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
-import fetchHeader from './actions/action'
+import { Link } from 'react-router-dom'
+import fetchHeader from './actions/fetchHeader'
 
 class Splash extends Component {
     state = {
@@ -25,7 +26,7 @@ class Splash extends Component {
                 <hr className="my-4" />
                 <p>{this.state.message && this.state.message}</p>
                 <p className="lead">
-                    <a className="btn btn-primary btn-lg" href="/" role="button">Learn more</a>
+                    <Link className="btn btn-primary btn-lg" to='/newsletter' role="button">Learn more</Link>
                 </p>
             </div>
         )

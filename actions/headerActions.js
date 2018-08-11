@@ -1,5 +1,4 @@
 const mongoose = require('mongoose')
-
 const Header = mongoose.model('headers')
 
     getHeader = async (req, res) => {
@@ -8,6 +7,14 @@ const Header = mongoose.model('headers')
             return res.status(200).send(exists)
         }
         return res.status(400).send('Header Not Found')
+    }
+
+    getHeaders = async (req, res) => {
+        const exists = await Header.find()
+        if(exists.length !== 0) {
+            return res.status(200).send(exists)
+        }
+        return res.status(400).send('No Headers Found')
     }
 
     addHeader = async (req, res) => {
@@ -38,4 +45,4 @@ const Header = mongoose.model('headers')
         return res.status(200).send(HeaderUpdate)
     }
 
-module.exports = {getHeader, addHeader, deleteHeader, putHeader}
+module.exports = {getHeader, getHeaders, addHeader, deleteHeader, putHeader}
