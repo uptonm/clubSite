@@ -1,13 +1,10 @@
-import React, { Component } from 'react'
+import React from 'react'
 import ContactForm from './ContactForm';
-import showResults from './actions/showResults'
 
-class ContactWrapper extends Component {
-    render() {
-        return (
-            <ContactForm onSubmit={showResults} />
-        )
-    }
+const ContactWrapper = (props) => {
+    return (
+        <ContactForm onSubmit={props.showResults} id={props.id}/>
+    )
 }
 
 export default ContactWrapper

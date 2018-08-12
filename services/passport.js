@@ -29,10 +29,10 @@ passport.use(
         //console.log('We already have a user with this id'); //Test
         return done(null, existingUser)
       } // We don't have a user record with this id, make a new record
-      if(profile._json.domain !== 'wit.edu') {
-          console.log('ran', profile._json.domain)
-          return done(null, false)
-      }
+      // if(profile._json.domain !== 'wit.edu') { //Is on wit domain?
+      //     console.log('ran', profile._json.domain)
+      //     return done(null, false)
+      // }
       else {
             const user = await new User({
                 first: profile.name.givenName,

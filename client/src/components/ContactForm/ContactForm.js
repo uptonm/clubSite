@@ -10,10 +10,16 @@ class ContactForm extends Component {
                 <h1 className="display-2" style={{ paddingTop: '20px' }}>Contact Form</h1>
                 <hr/>
                 <form onSubmit={handleSubmit}>
-                    <ContactField name='first' label='First Name' type='input' />
-                    <ContactField name='last' label='Last Name' type='input' />
-                    <ContactField name='email' label='Email' type='email' />
                     <div className="row">
+                        <div className="col">
+                            <ContactField name='first' label='First Name' type='input' />
+                        </div>
+                        <div className="col">
+                            <ContactField name='last' label='Last Name' type='input' />
+                        </div>
+                    </div>
+                    <ContactField name='email' label='Email' type='email' />
+                    {/* <div className="row">
                         <div className="col-1">
                             <label htmlFor='sex'>Sex:</label>
                             <ContactField id='sex' name='sex' label='Male' type='radio' value='male' />
@@ -25,8 +31,8 @@ class ContactForm extends Component {
                         <div className="col">
                             <ContactField name='game' label='Favorite Game' type='select' value={[{ name: 'Choose a game', value: 'null' }, { name: 'Dota/LoL', value: 'dota-LoL' }, { name: 'CS:GO', value: 'cs-go' }, { name: 'PUBG', value: 'pubg' }]} />
                         </div>
-                    </div>
-                    <ContactField name='notes' label='Notes' type='textarea' />
+                    </div> */}
+                    <ContactField name='bio' label='Bio' type='textarea' />
                     <div className='text-center'>
                         <button type="submit" disabled={pristine || submitting} className='btn btn-large btn-primary' style={{ marginRight: '5px' }}>Submit</button>
                         <button type="button" disabled={pristine || submitting} onClick={reset} className='btn btn-large btn-cancel' style={{ marginLeft: '5px' }}>Clear Values</button>
