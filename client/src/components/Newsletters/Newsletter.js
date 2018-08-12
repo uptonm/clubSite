@@ -13,7 +13,6 @@ class Newsletter extends Component {
             newsletters: response,
             selected: response[0]
         })
-        console.log(this.state)
     }
 
     renderView() {

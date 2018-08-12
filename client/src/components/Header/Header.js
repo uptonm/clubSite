@@ -1,7 +1,36 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux';
 import { Link } from 'react-router-dom'
 
 class Header extends Component {
+    componentDidMount() {
+        //console.log(this.props)
+    }
+    renderContent() {
+        switch(this.props.auth) {
+          case null:
+            return;
+          case false:
+            return ( 
+            <ul className='navbar-nav ml-auto'>
+              <li>
+                <a href='/auth/google' className='btn btn-secondary nav-link'>Login with Google</a>
+              </li>
+            </ul>
+          );
+          default:
+            return (
+            <ul className='navbar-nav ml-auto'>
+              <li className='nav-item'>
+                <a href='/profile' className='nav-link'>Hi {this.props.auth.first}</a>
+              </li>
+              <li className='nav-item'>
+                <a href='/api/logout' className='btn btn-secondary nav-link'>Log Out</a>
+              </li>
+            </ul>  
+            );
+        }
+      }
     render() {
         return (
             <div className="bs-component">
@@ -26,14 +55,16 @@ class Header extends Component {
                                 <a className="nav-link" href="/">About</a>
                             </li>
                         </ul>
-                        <form className="form-inline my-2 my-lg-0">
-                            <input className="form-control mr-sm-2" type="text" placeholder="Search" />
-                            <button className="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
-                        </form>
+                            {this.renderContent()}
                     </div>
                 </nav>
             </div>
         )
     }
 }
-export default Header;
+
+function mapStateToProps({ auth }) {
+    return { auth };
+  }
+  
+  export default connect(mapStateToProps)(Header);
