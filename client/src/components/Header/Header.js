@@ -3,9 +3,6 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom'
 
 class Header extends Component {
-    componentDidMount() {
-        //console.log(this.props)
-    }
     renderContent() {
         switch(this.props.auth) {
           case null:
@@ -22,7 +19,7 @@ class Header extends Component {
             return (
             <ul className='navbar-nav ml-auto'>
               <li className='nav-item'>
-                <a href='/profile' className='nav-link'>Hi {this.props.auth.first}</a>
+                <a href={`/profile/${this.props.auth.googleId}`} className='nav-link'>Hi {this.props.auth.first}</a>
               </li>
               <li className='nav-item'>
                 <a href='/api/logout' className='btn btn-secondary nav-link'>Log Out</a>

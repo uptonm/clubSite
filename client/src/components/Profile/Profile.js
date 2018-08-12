@@ -1,30 +1,56 @@
 import React, { Component } from 'react'
-import { connect } from 'react-redux'
+import { fetchUserById } from './actions/fetchUser'
 
 class Profile extends Component {
+    state = {
+        user: {}
+    }
+    componentDidMount = async () => {
+        const rootURL = '/profile/'
+        const id = this.props.location.pathname.substring(rootURL.length)
+        //console.log(this.props)
+        const res = await fetchUserById(id)
+        this.setState({ user: res.data[0] })
+        console.log(this.state)
+    }
+
     renderContent() {
-        switch(this.props.auth) {
-            case null:
+        switch(this.state.user) {
+            case {}:
                 return 
-            case false:
-                console.log(this.props.auth)
-                return <h1 className='text-center'>You must be logged in...</h1>
             default:
-                return <h1 className='text-center'>Hi <span className='text-success'>{this.props.auth.first}</span>, this section of the site is under construction. Please pardon the appearance.</h1>
+                return (
+                     <div className="card bg-white col-4 float-pad">
+                        <img className="rounded-circle mx-auto d-block img-fluid" src="http://bootdey.com/img/Content/avatar/avatar1.png" alt="John Doe" />
+                        <div className='float-pad-top'>
+                            <h3 className="text-center text-primary">{this.state.user.first} {this.state.user.last}</h3>
+                            <h5 className='text-center text-secondary'>{this.state.user.email}</h5>
+                        </div>
+                        <div className="float-pad-top">
+                            <a href={`mailto:${this.state.user.email}`} className="btn btn-primary btn-lg float-left"><i className="far fa-paper-plane soft-pad-right"></i> Send Email</a>
+                            <a href='https://discord.gg/9jVfWkS' className="btn btn-secondary btn-lg float-right"><i className="fab fa-discord soft-pad-right"></i> Discord</a>
+                        </div>
+                    </div>
+                )
         }
     }
+
+  
+
     render() {
         return (
             <div className='container'>
-                {this.renderContent()}
+                <div className="row float-pad">
+                    {this.renderContent()}
+                    <div className="col-8">
+                        <div className="card">
+                            hello
+                        </div>
+                    </div>
+                </div>
             </div>
         )
     }
 }
-
-
-function mapStateToProps({ auth }) {
-    return { auth };
-  }
   
-  export default connect(mapStateToProps)(Profile);
+export default Profile;

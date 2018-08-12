@@ -9,8 +9,7 @@ const User = mongoose.model('users')
     }
     
     getUser = async (req, res) => {
-        console.log('action creator ran')
-        const exists = await User.find({ _id: req.params.id })
+        const exists = await User.find({ googleId: req.params.id })
         if(exists.length !== 0) {
             return res.status(200).send(exists)
         }
@@ -25,7 +24,7 @@ const User = mongoose.model('users')
 
     deleteUser = async (req, res) => {
         const userDelete = await User.findByIdAndRemove(
-            { _id: req.params.id },
+            { googleId: req.params.id },
             (err, res) => {
                 if(err)
                     return res.status(400).send(err)

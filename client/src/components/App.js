@@ -21,7 +21,7 @@ class App extends Component {
                     <Route exact path='/' component={Splash} />
                     <Route path='/newsletter' component={Newsletter} />
                     <Route path='/emaillist' component={ContactWrapper} />
-                    <Route path='/profile' component={Profile} />
+                    <Route path='/profile/:id' component={Profile} />
                 </div>
             </BrowserRouter>
         )

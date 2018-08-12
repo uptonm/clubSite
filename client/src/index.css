@@ -1,0 +1,50 @@
+.float-pad {
+    padding: 10px;
+}
+
+.float-pad-top {
+    padding-top: 10px;
+}
+
+.float-pad-bottom {
+    padding-bottom: 10px;
+}
+
+.float-pad-sides {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.float-pad-right {
+    padding-right: 10px;
+}
+
+.float-pad-left {
+    padding-left: 10px;
+}
+
+.soft-pad {
+    padding: 5px;
+}
+
+.soft-pad-top {
+    padding-top: 5px;
+}
+
+.soft-pad-bottom {
+    padding-bottom: 5px;
+}
+
+.soft-pad-sides {
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.soft-pad-right {
+    padding-right: 5px;
+}
+
+.soft-pad-left {
+    padding-left: 5px;
+}
+
