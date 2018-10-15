@@ -8,13 +8,23 @@ import axios from 'axios'
 
 
 class Profile extends Component {
-    state = {
-        user: {}
+    constructor(props) {
+        super(props)
+        this.state = {
+            user: {}
+        }
+        this.pushEdits = this.pushEdits.bind(this)
+        this.getID = this.getID.bind(this)
     }
-    componentDidMount = async () => {
-        //console.log(this.props)
+
+    getID = () => {
         const rootURL = '/profile/'
         const id = this.props.location.pathname.substring(rootURL.length)
+        return id
+    }
+
+    componentDidMount = async () => {
+        const id = this.getID()
         const res = await fetchUserById(id)
         this.setState({ user: res.data[0] })
     }
@@ -30,9 +40,12 @@ class Profile extends Component {
         }
     }
 
-    pushEdits(values) {
+    pushEdits = async(values) => {
         console.log(values);
         // Call put req with updated values as body
+        const id = await this.getID()
+        const body = await values
+        axios.put(`/api/users/${id}`, {...body})
     }
 
     render() {

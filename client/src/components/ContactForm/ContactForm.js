@@ -7,7 +7,7 @@ class ContactForm extends Component {
         const { handleSubmit, pristine, reset, submitting } = this.props
         return (
             <div className="container">
-                <h1 className="display-2" style={{ paddingTop: '20px' }}>Contact Form</h1>
+                <h1 className="display-2" style={{ paddingTop: '20px' }}>Edit Profile</h1>
                 <hr/>
                 <form onSubmit={handleSubmit}>
                     <div className="row">

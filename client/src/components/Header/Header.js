@@ -19,8 +19,9 @@ class Header extends Component {
             return (
             <ul className='navbar-nav ml-auto'>
               <li className='nav-item'>
-                <a href={`/profile/${this.props.auth.googleId}`} className='nav-link'>Hi {this.props.auth.first}</a>
+                <a href={`/profile/${this.props.auth._id}`} className='nav-link'>Hi {this.props.auth.first}</a>
               </li>
+              {/* {(this.props.auth._id === "5b6f81346b35eb9eb0c5156e") ? <a>isAdmin</a> : <a>isNot</a>} */}
               <li className='nav-item'>
                 <a href='/api/logout' className='btn btn-secondary nav-link'>Log Out</a>
               </li>
@@ -46,7 +47,7 @@ class Header extends Component {
                                 <Link className="nav-link" to="/newsletter">Newsletter</Link>
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link" href="/">Pricing</a>
+                                <a className="nav-link" href="/calendar">Calendar</a>
                             </li>
                             <li className="nav-item">
                                 <a className="nav-link" href="/">About</a>

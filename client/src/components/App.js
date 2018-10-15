@@ -8,6 +8,8 @@ import Splash from './Splash/Splash'
 import Newsletter from './Newsletters/Newsletter'
 import ContactWrapper from './ContactForm/ContactWrapper';
 import Profile from './Profile/Profile'
+import Footer from './Footer/Footer'
+import Calendar from './Calendar/calendar'
 
 class App extends Component {
     componentDidMount() {
@@ -22,6 +24,8 @@ class App extends Component {
                     <Route path='/newsletter' component={Newsletter} />
                     <Route path='/emaillist' component={ContactWrapper} />
                     <Route path='/profile/:id' component={Profile} />
+                    <Route path='/calendar' component={Calendar} />
+                    <Footer />
                 </div>
             </BrowserRouter>
         )

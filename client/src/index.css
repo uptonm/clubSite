@@ -48,3 +48,30 @@
     padding-left: 5px;
 }
 
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+    position: relative;
+    min-height: 100%;
+  }
+  body {
+    /* Margin bottom by footer height */
+    margin-bottom: 60px;
+  }
+  .footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    /* Set the fixed height of the footer here */
+    height: 60px;
+    line-height: 58px; /* Vertically center the text there */
+  }
+
+  .footer-icon {
+      font-size: 24px;
+      color: white;
+  }
+
+  a:hover .footer-icon {
+      color: #14bc8c;
+  }
